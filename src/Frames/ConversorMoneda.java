@@ -56,12 +56,11 @@ public class ConversorMoneda extends javax.swing.JFrame {
         radioYen = new javax.swing.JRadioButton();
         jLabel11 = new javax.swing.JLabel();
         radioMxYen = new javax.swing.JRadioButton();
-        txtTexto = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         radioWon = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         radioMxWon = new javax.swing.JRadioButton();
-        jLabel14 = new javax.swing.JLabel();
+        labelResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor de moneda");
@@ -139,7 +138,7 @@ public class ConversorMoneda extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(305, 305, 305)
+                .addGap(315, 315, 315)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -196,8 +195,6 @@ public class ConversorMoneda extends javax.swing.JFrame {
         radioMxYen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         radioMxYen.setText("Pesos");
 
-        txtTexto.setBorder(null);
-
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Convertir de  pesos a ");
 
@@ -212,8 +209,8 @@ public class ConversorMoneda extends javax.swing.JFrame {
         radioMxWon.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         radioMxWon.setText("Pesos");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("Resultado");
+        labelResultado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        labelResultado.setText("Resultado");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -260,22 +257,17 @@ public class ConversorMoneda extends javax.swing.JFrame {
                                             .addComponent(radioMxWon))
                                         .addContainerGap())))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(169, 169, 169)
-                                        .addComponent(txtTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(radioMxDolar)))
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(radioMxDolar)
                                 .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(btnConvertir)
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel14)
+                        .addGap(38, 38, 38)
+                        .addComponent(labelResultado)
                         .addGap(18, 18, 18)
-                        .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -294,7 +286,7 @@ public class ConversorMoneda extends javax.swing.JFrame {
                             .addComponent(btnNuevo)
                             .addComponent(jLabel12)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(402, 402, 402)
+                        .addGap(409, 409, 409)
                         .addComponent(btnSalir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -304,16 +296,14 @@ public class ConversorMoneda extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevo)
-                    .addComponent(txtTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnNuevo)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConvertir)
                     .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(labelResultado))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -395,37 +385,43 @@ public class ConversorMoneda extends javax.swing.JFrame {
             
             double cantidad = Double.parseDouble(txtCantidad.getText());
              double resultado;
+             String dolar =" dolares";
+             String peso = " pesos";
+             String euro = " euros";
+             String libra = " libras esterlinas";
+             String yen = " yens";
+             String won = " wons";
               if (radioDolar.isSelected()) {
                     resultado = cantidad * 0.05; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
-                    txtTexto.setText("Son :");
+                    txtResultado.setText(String.format("%.2f", resultado)+ dolar);
+                    
                 } else if(radioMxDolar.isSelected()) {
                     resultado = cantidad * 18.07; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+peso);
                 }else if(radioEuro.isSelected()) {
                     resultado = cantidad * 0.06; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ euro);
                 }else if(radioMxEuro.isSelected()) {
                     resultado = cantidad * 19.72; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ peso);
                 }else if(radioLibra.isSelected()) {
                     resultado = cantidad * 0.04; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ libra);
                 }else if(radioMxLibra.isSelected()) {
                     resultado = cantidad * 22.47; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ peso);
                 }else if(radioYen.isSelected()) {
                     resultado = cantidad * 0.14; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ yen);
                 }else if(radioMxYen.isSelected()) {
                     resultado = cantidad * 7.27; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ peso);
                 }else if(radioWon.isSelected()) {
                     resultado = cantidad * 0.01; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ won);
                 }else if(radioMxWon.isSelected()) {
                     resultado = cantidad * 72.53; // Tipo de cambio al 3 de abril de 2023
-                    txtResultado.setText(String.format("%.2f", resultado));
+                    txtResultado.setText(String.format("%.2f", resultado)+ peso);
                 }
               
                // Mostrar el resultado en el campo de texto correspondiente
@@ -450,7 +446,7 @@ public class ConversorMoneda extends javax.swing.JFrame {
             
             txtCantidad.setText("");
             txtResultado.setText("");
-            txtTexto.setText("");
+            
         }
     /**
      * @param args the command line arguments
@@ -497,7 +493,6 @@ public class ConversorMoneda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -508,6 +503,7 @@ public class ConversorMoneda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelResultado;
     private javax.swing.JRadioButton radioDolar;
     private javax.swing.JRadioButton radioEuro;
     private javax.swing.JRadioButton radioLibra;
@@ -520,6 +516,5 @@ public class ConversorMoneda extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioYen;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtResultado;
-    private javax.swing.JTextField txtTexto;
     // End of variables declaration//GEN-END:variables
 }
