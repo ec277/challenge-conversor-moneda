@@ -6,7 +6,7 @@
 
 ### Y viciversa convierte de dolares, euros, libras, yens y wons a pesos mexicanos.
 
-![imagen de inicio del programa](/src/imagenes/convertidor1.jpg)
+![imagen de inicio del programa](/src/Imagenes/convertidor1.jpg)
 
 ![imagen del programa](/src/Imagenes/convertidor2.jpg)
 
